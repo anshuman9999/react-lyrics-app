@@ -1,6 +1,7 @@
 import React from 'react';
 import './Layout.css';
 import Showcase from '../Showcase/Showcase.component';
+import './Spinner.css';
 
 class Layout extends React.Component {
     state = {
@@ -21,9 +22,9 @@ class Layout extends React.Component {
 
     render() {
         let showcase = null;
-        if(this.state.searchTerm) {
+        if (this.state.searchTerm) {
             console.log(this.state.showInfo, this.state.showLyrics);
-            showcase = <Showcase searchTerm={ this.state.searchTerm } lyricsShow={ this.state.showLyrics} infoShow={ this.state.showInfo } />
+            showcase = <Showcase searchTerm={this.state.searchTerm} lyricsShow={this.state.showLyrics} infoShow={this.state.showInfo} />
         }
         return (
             <div className="main-component">
@@ -32,10 +33,10 @@ class Layout extends React.Component {
 
                     <h1 style={{ textAlign: 'center' }} > Lyrics Finder </h1>
                     <div className="showcase-input-button" >
-                        <input type="text" className="showcase-input"/>
-                        <button className='showcase-button' onClick={ this.submitHandler } >Search</button>
+                        <input type="text" className="showcase-input" />
+                        <button className='showcase-button' onClick={this.submitHandler} >Search</button>
                     </div>
-                    { showcase }
+                    {showcase}
                 </div>
             </div>
         )

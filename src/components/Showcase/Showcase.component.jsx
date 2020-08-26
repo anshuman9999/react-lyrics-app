@@ -23,9 +23,10 @@ class Showcase extends React.Component {
             const result = await axios.get(`https://api.lyrics.ovh/suggest/${this.props.searchTerm}`);
             this.setState({ data: result.data, searchTerm: this.props.searchTerm });
         }
+
         document.querySelector('.showcase-button').addEventListener(
             'click',
-            () => this.setState({ showLyrics: false, showInfo: true })
+            () => setTimeout(() => this.setState({ showLyrics: false, showInfo: true }), 1500)
         )
     }
 
@@ -41,14 +42,22 @@ class Showcase extends React.Component {
 
     render() {
         console.log(this.state.showInfo, this.state.showLyrics);
+
         let data = null;
+        let titles = '';
+        let artists = '';
         if (this.state.data) {
             data = this.state.data.data;
+            titles = 'Titles';
+            artists = 'Artists'
         }
-        let info = (
+
+        let info = null;
+
+        info = (
             <>
                 <div className="info-main-titles" >
-                    <h3 className="titles-h3" > Titles </h3>
+                    <h3 className="titles-h3" > {titles} </h3>
                     {
                         data ?
                             data.map((obj) => {
@@ -58,7 +67,7 @@ class Showcase extends React.Component {
 
                 </div>
                 <div className="info-main-artists" >
-                    <h3 className="artists-h3" > Artists </h3>
+                    <h3 className="artists-h3" > {artists} </h3>
                     {
                         data ?
                             data.map((obj) => {
@@ -77,7 +86,7 @@ class Showcase extends React.Component {
                                             onClick={(artist, title) => this.lyricsShow(obj.artist.name, obj.title)}
                                         >
                                             Lyrics
-                                        </button>
+                                    </button>
                                         <br />
                                     </>
                                 )
@@ -90,6 +99,8 @@ class Showcase extends React.Component {
         let lyrics = (
             <Lyrics title={this.state.title} artist={this.state.artist} />
         );
+
+
 
         return (
             <>
