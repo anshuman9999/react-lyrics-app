@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-component {
+    display: flex;
+    font-family: 'Alata', sans-serif;
+}
+
+.main-component-image {
+    height: 100vh;
+    width: 20vw;
+    background-image: url("../../assets/piano.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.main-component-showcase {
+    width: 80vw;
+    height: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.showcase-input-button {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.showcase-input {
+    margin-right: 20px;
+    border-radius: 10px;
+    height: 20px;
+    width: 300px;
+    border: 0.1px solid steelblue;
+}
+
+.showcase-input:active {
+    border: none;
+}
+
+.showcase-button {
+    font-family: 'Open Sans', sans-serif;
+    border: transparent;
+    border: 2px solid #333;
+    border-radius: 10px;
+    width: 100px;
+    height: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
