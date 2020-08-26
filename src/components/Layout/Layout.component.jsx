@@ -29,7 +29,8 @@ class Layout extends React.Component {
             <div className="main-component">
                 <div className="main-component-image" ></div>
                 <div className="main-component-showcase" >
-                    <h1> Lyrics Finder </h1>
+
+                    <h1 style={{ textAlign: 'center' }} > Lyrics Finder </h1>
                     <div className="showcase-input-button" >
                         <input type="text" className="showcase-input"/>
                         <button className='showcase-button' onClick={ this.submitHandler } >Search</button>

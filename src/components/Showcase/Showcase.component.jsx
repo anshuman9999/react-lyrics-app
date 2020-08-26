@@ -21,7 +21,7 @@ class Showcase extends React.Component {
     componentDidUpdate = async () => {
         if (this.state.searchTerm !== this.props.searchTerm) {
             const result = await axios.get(`https://api.lyrics.ovh/suggest/${this.props.searchTerm}`);
-            this.setState({ data: result.data, searchTerm: this.props.searchTerm});
+            this.setState({ data: result.data, searchTerm: this.props.searchTerm });
         }
         document.querySelector('.showcase-button').addEventListener(
             'click',
@@ -48,14 +48,17 @@ class Showcase extends React.Component {
         let info = (
             <>
                 <div className="info-main-titles" >
+                    <h3 className="titles-h3" > Titles </h3>
                     {
                         data ?
                             data.map((obj) => {
                                 return <p> {obj.title} </p>
                             }) : null
                     }
+
                 </div>
                 <div className="info-main-artists" >
+                    <h3 className="artists-h3" > Artists </h3>
                     {
                         data ?
                             data.map((obj) => {
@@ -70,7 +73,8 @@ class Showcase extends React.Component {
                                 return (
                                     <>
                                         <button
-                                            onClick={ (artist, title) => this.lyricsShow(obj.artist.name, obj.title) }
+                                            className="info-button"
+                                            onClick={(artist, title) => this.lyricsShow(obj.artist.name, obj.title)}
                                         >
                                             Lyrics
                                         </button>
@@ -84,15 +88,17 @@ class Showcase extends React.Component {
         )
 
         let lyrics = (
-            <Lyrics title={ this.state.title } artist={ this.state.artist } />
+            <Lyrics title={this.state.title} artist={this.state.artist} />
         );
 
         return (
             <>
-                <div className="info-main" >
-                    {
-                        this.state.showInfo ? info : null
-                    }
+                <div className="info-main-buttons" >
+                    <div className="info-main" >
+                        {
+                            this.state.showInfo ? info : null
+                        }
+                    </div>
                 </div>
                 <div className="lyrics-main" >
                     {
